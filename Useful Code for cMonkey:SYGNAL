@@ -1,0 +1,43 @@
+MM cMonkey run
+Clean up
+cd runs/
+cd run.pita/
+rm -rf out
+vim start_cmonkey.sh
+a = append
+go to end
+> stdout.txt 2> stderr.txt
+will be able to do tail -n 50 stderr.txt (need to be in directory of run.pita or run.targetscan or run.tfbs)
+2000 iterations
+escape
+:wq
+
+screen -S pita
+docker run -it -v '/home/soconnor/cMonkey/CoMMpass:/files' cplaisier/cmonkey2
+cd /files/runs/run.pita
+./start_cmonkey.sh
+
+screen -S targetscan
+docker run -it -v '/home/soconnor/cMonkey/CoMMpass:/files' cplaisier/cmonkey2
+cd /files/runs/run.targetscan
+./start_cmonkey.sh
+
+screen -S tfbs
+docker run -it -v '/home/soconnor/cMonkey/CoMMpass:/files' cplaisier/cmonkey2
+cd /files/runs/run.tfbs_db
+./start_cmonkey.sh
+#control a d     to get out of
+
+
+screen -ls
+screen -r pita (to enter back into screen)
+
+
+need to close down docker and screens when done
+
+When cmonkey is finished:
+get out of docker image
+get back into screen (-r pita)
+get into sygnal docker image
+cd sygnal
+start_sygnal.sh

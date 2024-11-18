@@ -1,0 +1,7 @@
+
+# Line cutoff on scanpy scatter plot
+with PdfPages('scatterplot.pdf') as pp:
+  ax1 = sc.pl.scatter(adata, x='total_counts', y='pct_counts_mt', show=False)
+  ax1.axhline(y=21, color='red')
+  pp.savefig()
+  plt.close()

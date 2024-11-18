@@ -1,0 +1,46 @@
+MM cMonkey run
+Clean up
+cd runs/
+cd run.pita/
+rm -rf out
+vim start_cmonkey.sh
+a = append
+go to end
+> stdout.txt 2> stderr.txt
+will be able to do tail -n 50 stderr.txt (need to be in directory of run.pita or run.targetscan or run.tfbs)
+2000 iterations
+escape
+:wq
+
+screen -S pita
+docker run -it -v '/home/soconnor/cMonkey/CoMMpass:/files' cplaisier/cmonkey2
+cd /files/runs/run.pita
+./start_cmonkey.sh
+
+screen -S targetscan
+docker run -it -v '/home/soconnor/cMonkey/CoMMpass:/files' cplaisier/cmonkey2
+cd /files/runs/run.targetscan
+./start_cmonkey.sh
+
+screen -S tfbs
+docker run -it -v '/home/soconnor/cMonkey/CoMMpass:/files' cplaisier/cmonkey2
+cd /files/runs/run.tfbs_db
+./start_cmonkey.sh
+#control a d     to get out of
+
+
+screen -ls
+screen -r pita (to enter back into screen)
+
+
+need to close down docker and screens when done
+
+
+
+
+# Line cutoff on scanpy scatter plot
+with PdfPages('scatterplot.pdf') as pp:
+  ax1 = sc.pl.scatter(adata, x='total_counts', y='pct_counts_mt', show=False)
+  ax1.axhline(y=21, color='red')
+  pp.savefig()
+  plt.close()

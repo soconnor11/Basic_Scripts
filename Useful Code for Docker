@@ -1,0 +1,14 @@
+github
+dockerhub.com
+rocker/r-base
+make Dockerfile
+
+Terminal
+docker pull rocker/r-base:latest
+cd to DockerFile
+docker build -t cplaisier/seurat_4.0 .
+
+
+docker run -it satijalab/seurat
+library(Seurat)
+sessionInfo()

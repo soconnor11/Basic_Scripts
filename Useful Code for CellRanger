@@ -1,0 +1,23 @@
+
+First thing to do before anything else: Make sure that hashes are correct
+cd to hBMMSC
+Check to make sure that all files are right!
+md5sum filename
+
+
+make screen
+screen -S BMMSC
+
+docker run -it -v '/home/cplaisier/ccAF_newData/usftp21.novogene.com/raw_data/:/files' cplaisier/cellranger_6.0.1
+cd
+
+
+
+screen -ls
+screen -r BMMSC (to enter back into screen)
+
+
+
+
+apt-get install python
+export PATH=/opt/cellranger-6.0.1/bin:$PATH
